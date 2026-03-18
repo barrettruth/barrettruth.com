@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "/fonts/:path*",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://vimdoc-language-server.barrettruth.com"
+        }
+      ]
+    }
+  ]
+}
