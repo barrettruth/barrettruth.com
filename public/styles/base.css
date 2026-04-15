@@ -170,7 +170,7 @@ code[class*="language-"] {
 html,
 body {
   font-family: "Signifier", serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 html,
