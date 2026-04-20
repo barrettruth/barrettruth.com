@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [main]
 jobs:
-  ci:
+  quality:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -12,7 +12,13 @@ jobs:
         with:
           node-version: 20
           cache: "pnpm"
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: just
       - run: pnpm install
-      - run: pnpm prettier --check .
-      - run: pnpm astro check
-      - run: pnpm build
+      - name: Format
+        run: just format
+      - name: Lint
+        run: just lint
+      - name: Build
+        run: just build
