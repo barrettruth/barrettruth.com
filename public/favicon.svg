@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    :root {
+      color: #121212;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color: #e0e0e0;
+      }
+    }
+  </style>
+  <path
+    fill="currentColor"
+    d="M50 0 658 1387H692L1266 0ZM1027 85 622 1081 184 85Z"
+    transform="translate(7.33093006488825 58) scale(0.03749098774333093 -0.03749098774333093)"
+  />
+</svg>

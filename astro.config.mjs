@@ -38,6 +38,7 @@ const daylight = {
 };
 
 export default defineConfig({
+  site: "https://barrettruth.com",
   output: "static",
   adapter: vercel(),
   build: {

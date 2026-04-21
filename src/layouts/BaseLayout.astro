@@ -1,5 +1,14 @@
 ---
-const { title, description = "barrett ruth's website" } = Astro.props;
+const {
+  title,
+  description = "barrett ruth's website",
+  ogImage = "/og.png",
+  ogImageAlt = "A delta symbol beside the text barrett ruth",
+  ogType = "website",
+} = Astro.props;
+const site = Astro.site ?? new URL("https://barrettruth.com");
+const canonicalUrl = new URL(Astro.url.pathname, site);
+const ogImageUrl = new URL(ogImage, site);
 ---
 
 <!doctype html>
@@ -9,7 +18,23 @@ const { title, description = "barrett ruth's website" } = Astro.props;
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <link rel="icon" type="image/webp" href="/logo.webp" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="barrett ruth" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
     <link rel="stylesheet" href="/styles/base.css" />
     <title>{title}</title>
     <slot name="head" />
