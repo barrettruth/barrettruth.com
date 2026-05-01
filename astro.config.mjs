@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
-import vercel from "@astrojs/vercel";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
@@ -40,7 +39,6 @@ const daylight = {
 export default defineConfig({
   site: "https://barrettruth.com",
   output: "static",
-  adapter: vercel(),
   build: {
     format: "file",
   },
