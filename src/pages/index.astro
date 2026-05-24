@@ -85,4 +85,29 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
     </section>
   </div>
+
+  <script slot="scripts" is:inline>
+    const shortcuts = {
+      d: "https://delta.barrettruth.com",
+      f: "https://finance.barrettruth.com",
+      g: "https://git.barrettruth.com",
+      p: "https://philipmruth.com",
+      v: "https://vault.barrettruth.com",
+    };
+
+    const isEditableElement = (target) =>
+      target instanceof HTMLElement &&
+      (target.isContentEditable ||
+        ["INPUT", "SELECT", "TEXTAREA"].includes(target.tagName));
+
+    window.addEventListener("keydown", (event) => {
+      if (event.altKey || event.ctrlKey || event.metaKey) return;
+      if (isEditableElement(event.target)) return;
+
+      const destination = shortcuts[event.key.toLowerCase()];
+      if (!destination) return;
+
+      window.location.assign(destination);
+    });
+  </script>
 </BaseLayout>
