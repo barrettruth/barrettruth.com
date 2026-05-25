@@ -104,7 +104,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       if (event.altKey || event.ctrlKey || event.metaKey) return;
       if (isEditableElement(event.target)) return;
 
-      const destination = shortcuts[event.key.toLowerCase()];
+      const destination = shortcuts[event.key];
       if (!destination) return;
 
       window.location.assign(destination);
