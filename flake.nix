@@ -28,6 +28,7 @@
             pkgs.pnpm
             pkgs.just
             pkgs.rsync
+            pkgs.vtsls
           ];
         in
         {
